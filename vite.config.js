@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/superhero-hunter/',
+  base: '/cn_js_superhero-hunter/',
 });
