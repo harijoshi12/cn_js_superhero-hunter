@@ -3,12 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/marvel.svg" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Superhero Hunter</title>
   </head>
-  <body>
-    <h1>Superhero Hunter</h1>
-    <div id="app"></div>
+  <body id="home-page">
+    <header>
+      <a href="/" id="logo">Superhero Hunter</a>
+      <a href="./favourites.html">My Favourites</a>
+    </header>
+    <form class="search">
+      <input type="text" placeholder="Search Your Superhero" />
+      <button type="submit">
+        <img src="./search.svg" alt="" />
+      </button>
+    </form>
+    <div id="listItems">
+      <div class="card">
+        <img src="" alt="" class="heroImage" />
+        <div class="about">
+          <p>strong</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="" alt="" class="heroImage" />
+        <div class="about">
+          <p>strong</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="" alt="" class="heroImage" />
+        <div class="about">
+          <p>strong</p>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

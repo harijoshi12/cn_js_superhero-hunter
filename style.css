@@ -1,97 +1,94 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background-color: transparent;
+  transition: all 0.2s linear;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  background-color: black;
+  background-image: url("/marvel.png");
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 45%;
+  background-attachment: fixed;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+a {
+  text-decoration: none;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  padding: 20px 10px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(255, 0, 0);
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+header a {
   cursor: pointer;
-  transition: border-color 0.25s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+header a:hover {
+  border-bottom: 3px solid white;
+  color: white;
+  transform: scale(1.1);
+  transform: translateY(-5px);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.search {
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0 30px;
+  padding-right: 50px;
+  border-radius: 70px;
+  overflow: hidden;
 }
+.search input {
+  width: 100%;
+  padding: 20px 10px;
+  font-size: 30px;
+}
+.search img {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+.search img:hover {
+  transform: scale(1.2);
+}
+
+#listItems {
+  width: 80%;
+  margin: 10px auto;
+}
+#listItems .card {
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 200px;
+  margin: 10px 0;
+  display: flex;
+}
+#listItems .card .heroImage {
+  width: 250px;
+  height: 250px;
+  background-size: contain;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,90 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background-color: transparent;
+  transition: all 0.2s linear;
+}
+body {
+  min-height: 100vh;
+  background-color: black;
+  background-image: url('/marvel.png');
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 45%;
+  background-attachment: fixed;
+}
+a {
+  text-decoration: none;
+}
+header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  padding: 20px 10px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(255, 0, 0);
+  a {
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+    &:hover {
+      border-bottom: 3px solid white;
+      color: white;
+      transform: scale(1.1);
+      transform: translateY(-5px);
+    }
+  }
+}
+.search {
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0 30px;
+  padding-right: 50px;
+  border-radius: 70px;
+  overflow: hidden;
+  input {
+    width: 100%;
+    padding: 20px 10px;
+    font-size: 30px;
+  }
+  img {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+#listItems {
+  width: 80%;
+  margin: 10px auto;
+  .card {
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 200px;
+    margin: 10px 0;
+    display: flex;
+    .heroImage {
+      width: 250px;
+      height: 250px;
+      background-size: contain;
+    }
+  }
+}
