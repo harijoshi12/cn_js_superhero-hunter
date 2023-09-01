@@ -22,7 +22,6 @@ Superhero Hunter is a web application that allows users to search for their favo
 
 ```bash
   git clone https://github.com/harijoshi12/cn_js_superhero-hunter.git
-  cd cn_js_superhero-hunter
 ```
 
 2. Navigate to the project directory

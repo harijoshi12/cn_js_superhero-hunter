@@ -10,8 +10,47 @@
   background-color: transparent;
 }
 
+.loader {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  line-height: 200px;
+  font-size: 50px;
+  padding: 30%;
+  color: white;
+}
+
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: green;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px 40px;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 30px;
+  font-size: 20px;
+}
+
+.noResult {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}
+
 #home-page,
-#favourites-page {
+#favorites-page {
   min-height: 100vh;
   background-color: black;
   background-image: url("/marvel.png");
@@ -23,6 +62,13 @@
 
 a {
   text-decoration: none;
+}
+
+.page-title {
+  text-align: center;
+  margin: 50px 10px;
+  font-size: 35px;
+  color: white;
 }
 
 header {
@@ -79,49 +125,62 @@ header a:hover {
   transform: scale(1.2);
 }
 
-#listItems {
+#listItems,
+#favoritesList {
   width: 80%;
   margin: 10px auto;
 }
-#listItems .card {
+#listItems .card,
+#favoritesList .card {
   background-color: rgb(255, 255, 255);
-  margin: 15px 0;
+  margin: 20px 0;
   border-radius: 5px;
   display: flex;
+  overflow: hidden;
   cursor: pointer;
 }
-#listItems .card .heroImage {
-  min-width: 270px;
-  height: 270px;
+#listItems .card .heroImage,
+#favoritesList .card .heroImage {
+  min-width: 200px;
+  height: 100px;
   overflow: hidden;
 }
-#listItems .card .heroImage:hover img {
+#listItems .card .heroImage:hover img,
+#favoritesList .card .heroImage:hover img {
   transform: scale(1.2);
 }
-#listItems .card .heroImage img {
+#listItems .card .heroImage img,
+#favoritesList .card .heroImage img {
   transition: all 0.2s linear;
-  width: 270px;
-  height: 270px;
-  background-size: contain;
+  width: 200px;
+  background-position: center;
+  background-size: cover;
 }
-#listItems .card .about p {
+#listItems .card .about,
+#favoritesList .card .about {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 10px;
+  width: 100%;
+}
+#listItems .card .about p,
+#favoritesList .card .about p {
   padding: 5px 10px;
   font-size: 20px;
   font-weight: "bold";
   font-family: Arial, Helvetica, sans-serif;
 }
-#listItems .card .about .heroName {
+#listItems .card .about .heroName,
+#favoritesList .card .about .heroName {
   font-size: 30px;
   color: blue;
 }
-#listItems .card .about .heroDesc {
-  font-family: cursive;
-  color: purple;
-}
-#listItems .card .about button {
+#listItems .card .about button,
+#favoritesList .card .about button {
+  margin-left: auto;
   padding: 10px 20px;
-  margin: 10px;
-  margin-top: 20px;
+  min-width: 270px;
   box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   background-color: red;
@@ -131,8 +190,15 @@ header a:hover {
   cursor: pointer;
   transition: all 0.2s linear;
 }
-#listItems .card .about button:hover {
-  transform: scale(1.2) translateX(20px);
+#listItems .card .about button:hover,
+#favoritesList .card .about button:hover {
+  transform: scale(1.05);
+}
+#listItems .card .about .fav-active,
+#favoritesList .card .about .fav-active {
+  background-color: white;
+  border: 1px solid;
+  color: red;
 }
 
 #superhero-details {
