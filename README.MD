@@ -16,6 +16,33 @@ Superhero Hunter is a web application that allows users to search for their favo
 
 **Client:** HTML, CSS, JavaScript (ES6+),Marvel API, Vite
 
+## Project Structure
+```plaintext
+|-- .github
+|   |-- workflows     
+|   |   |-- static.yml
+|-- public
+|   |-- marvel.png
+|   |-- marvel.svg
+|   |-- search.svg
+|-- .env.local    
+|-- .gitignore    
+|-- common.js     
+|-- favorites.html
+|-- favorites.js  
+|-- home.js       
+|-- index.html    
+|-- package-lock.json
+|-- package.json
+|-- README.MD
+|-- style.css
+|-- style.css.map
+|-- style.scss
+|-- superhero.html
+|-- superHero.js
+|-- vite.config.js
+```
+
 ## Installation
 
 1. Clone the repository
