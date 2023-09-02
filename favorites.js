@@ -1,20 +1,10 @@
+// favoritesHeroes.js
+import { showToast, toggleLoader } from './common.js';
+
+// Initialize favoriteHeroes array from localStorage
 let favoriteHeroes = JSON.parse(localStorage.getItem('favorites')) || [];
 
-// Function to show toast with dynamic message
-const showToast = (message) => {
-  const toast = document.getElementById('toast');
-  toast.innerText = message;
-  toast.style.visibility = 'visible';
-  // Hide toast after 3 seconds
-  setTimeout(() => {
-    toast.style.visibility = 'hidden';
-  }, 3000);
-};
-
-const toggleLoader = (display) => {
-  document.getElementById('loader').style.display = display ? 'block' : 'none';
-};
-
+// Fetch favorite superheroes from localStorage
 const fetchSuperheroesFromLocal = async () => {
   try {
     toggleLoader(true);
@@ -27,12 +17,15 @@ const fetchSuperheroesFromLocal = async () => {
     console.log('Error fetching local items: ', err);
   }
 };
+
+// Display favorite superheroes on the page
 const displaySuperheroes = () => {
   const favoritesList = document.getElementById('favoritesList');
   favoritesList.innerHTML = favoriteHeroes.length
     ? ''
     : '<h1 class="noResult">No Heroes Added to Favorites. Search and Add Your Heroes to Favorites.</h1>';
 
+  // Loop through each favorite hero and create a card
   favoriteHeroes?.forEach((hero) => {
     const card = document.createElement('div');
     card.innerHTML = `
@@ -58,14 +51,19 @@ const displaySuperheroes = () => {
   });
 };
 
+// Remove hero from favorites
 const removeFromFavorites = (event, hero) => {
+  // Filter out the hero to be removed
   favoriteHeroes = favoriteHeroes.filter((el) => el.id !== hero.id);
+  // Update localStorage
   console.log('remove hero id =', hero.id);
   localStorage.setItem('favorites', JSON.stringify(favoriteHeroes));
   showToast(`Removed ${hero.name} From Favorites`);
+  // Refresh the displayed list
   displaySuperheroes();
 };
 
+// Execute when the document is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
   fetchSuperheroesFromLocal();
   displaySuperheroes();

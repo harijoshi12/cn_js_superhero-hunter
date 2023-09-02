@@ -1,3 +1,4 @@
+/* Global Reset */
 *,
 *::after,
 *::before {
@@ -10,6 +11,7 @@
   background-color: transparent;
 }
 
+/* Loader Styles */
 .loader {
   display: none; /* Hidden by default */
   position: fixed;
@@ -22,10 +24,11 @@
   text-align: center;
   line-height: 200px;
   font-size: 50px;
-  padding: 30%;
+  padding: 20%;
   color: white;
 }
 
+/* Toast Notification Styles */
 #toast {
   visibility: hidden;
   min-width: 250px;
@@ -43,12 +46,14 @@
   font-size: 20px;
 }
 
+/* No Result Text Style */
 .noResult {
   color: white;
   text-align: center;
   margin-top: 50px;
 }
 
+/* Common Background for Home and Favorites Page */
 #home-page,
 #favorites-page {
   min-height: 100vh;
@@ -60,10 +65,12 @@
   background-attachment: fixed;
 }
 
+/* Anchor Tag Styles */
 a {
   text-decoration: none;
 }
 
+/* Page Title Styles */
 .page-title {
   text-align: center;
   margin: 50px 10px;
@@ -71,11 +78,12 @@ a {
   color: white;
 }
 
+/* Header Styles */
 header {
   display: flex;
   position: sticky;
   top: 0;
-  padding: 20px 10px;
+  padding: 13px;
   justify-content: space-around;
   align-items: center;
   background-color: rgb(255, 0, 0);
@@ -86,7 +94,7 @@ header a {
   letter-spacing: 2px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: rgb(255, 255, 255);
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
   border-bottom: 3px solid transparent;
   transition: all 0.2s linear;
@@ -98,6 +106,7 @@ header a:hover {
   transform: translateY(-5px);
 }
 
+/* Search Bar Styles */
 .search {
   width: 80%;
   margin: 30px auto;
@@ -112,7 +121,7 @@ header a:hover {
 }
 .search input {
   width: 100%;
-  padding: 20px 10px;
+  padding: 15px 10px;
   font-size: 30px;
 }
 .search img {
@@ -125,6 +134,7 @@ header a:hover {
   transform: scale(1.2);
 }
 
+/* List Items and Favorites List Styles */
 #listItems,
 #favoritesList {
   width: 80%;
@@ -201,6 +211,7 @@ header a:hover {
   color: red;
 }
 
+/* Superhero Details Page Styles */
 #superhero-details {
   background-color: rgb(0, 0, 0);
   min-height: 87vh;
@@ -219,10 +230,23 @@ header a:hover {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: blue;
 }
-#superhero-details p {
+#superhero-details .about {
+  color: white;
+  padding-left: 10px;
+}
+#superhero-details .about h2 {
+  color: white;
+}
+#superhero-details .about ul {
+  padding-left: 35px;
+}
+#superhero-details .about p {
   color: white;
   padding: 0 10px 10px 20px;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 2px;
-  font-family: fantasy;
+}
+#superhero-details .about p a {
+  color: dodgerblue;
+  word-break: break-all;
 }/*# sourceMappingURL=style.css.map */

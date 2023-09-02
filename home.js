@@ -1,62 +1,70 @@
+// home.js
+import { showToast, toggleLoader } from './common.js';
+
+// Import MD5 hashing function from crypto-js library
 import MD5 from 'crypto-js/md5';
 
+// Import environment variables
 const pulicKey = import.meta.env.VITE_PUBLIC_API_KEY;
 const privateKey = import.meta.env.VITE_PRIVATE_API_KEY;
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
-let favoriteSuperheroes = JSON.parse(localStorage.getItem('favorites')) || [];
-
-// Function to show toast with dynamic message
-const showToast = (message) => {
-  const toast = document.getElementById('toast');
-  toast.innerText = message;
-  toast.style.visibility = 'visible';
-  // Hide toast after 3 seconds
-  setTimeout(() => {
-    toast.style.visibility = 'hidden';
-  }, 3000);
-};
-
+// Initialize timeout variable for search debounce
 let timeout;
 
+// Function to fetch superheroes based on query
 const fetchSuperHeroes = async (query) => {
   const ts = new Date().getTime();
   const hash = MD5(ts + privateKey + pulicKey).toString();
   const apiUrl = `${baseUrl}?nameStartsWith=${query}&ts=${ts}&apikey=${pulicKey}&hash=${hash}`;
   try {
-    document.getElementById('loader').style.display = 'block';
-
+    // Show loader while fetching
+    toggleLoader(true);
     const response = await fetch(apiUrl);
     const { data } = await response.json();
     console.log('superhreos = ', data?.results);
     displaySuperheroes(data?.results);
-
-    document.getElementById('loader').style.display = 'none';
+    // Hide loader after fetching
+    toggleLoader(false);
   } catch (err) {
-    document.getElementById('loader').style.display = 'none';
-
+    // Hide loader if an error occurs
+    toggleLoader(false);
     console.log(err);
   }
 };
 
+// Function to display fetched superheroes
 const displaySuperheroes = (superheroes = []) => {
   const listItems = document.getElementById('listItems');
   listItems.innerHTML = '';
+  // Display message if no superheroes found
   if (superheroes.length == 0) {
     listItems.innerHTML = `
     <h1 class="noResult">No Hero Found. Try Seaching Some Other heroes.</h1>
     `;
   }
+  // Display superheroes
   superheroes?.slice(0, 20)?.map((hero) => {
     const card = document.createElement('div');
+    const existingFavorites =
+      JSON.parse(localStorage.getItem('favorites')) || [];
+
+    const isAlreadyFavorite = existingFavorites.some(
+      (existingHero) => existingHero.id === hero.id
+    );
     card.innerHTML = `
     <a href="./superhero.html?id=${hero.id}" class="card">
       <div class="heroImage">
-      <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" alt="${hero.name}"  />
+      <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" alt="${
+      hero.name
+    }"  />
       </div>
         <div class="about">
           <p class="heroName">${hero.name}</p>
-          <button class="add-favorite-button">Add to Favorites</button>
+          <button class="add-favorite-button ${
+            isAlreadyFavorite ? 'fav-active' : ''
+          }">Add to Favorites</button>
+        
         </div>
     </a>
     `;
@@ -71,6 +79,7 @@ const displaySuperheroes = (superheroes = []) => {
   });
 };
 
+// Event listener for DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
   if (path.includes('superhero-hunter')) {
@@ -90,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Add to favorites
+// Function to add superhero to favorites
 const addToFavorites = (event, hero) => {
   // Fetch existing favorites from local storage
   const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
